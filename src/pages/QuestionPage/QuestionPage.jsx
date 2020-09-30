@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
@@ -8,6 +10,7 @@ import propTypes from 'prop-types';
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 import ModalBox from '../../components/modal/modal';
+import api from '../../api';
 
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/mode-javascript';
@@ -23,15 +26,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-const QuestionPage = ({ questions }) => {
-    const { questionName } = useParams();
-    const question = questions.filter((item) => item.questionName === questionName)[0];
-    const history = useHistory();
-
-    const routeChange = () => {
-        history.push('/');
-    };
-
+const QuestionPage = ({ question }) => {
     const langList = [
         'Bash',
         'Brainfuck',
@@ -65,11 +60,20 @@ const QuestionPage = ({ questions }) => {
         setCharacter(value.length);
     };
 
+    const submitSolution = async () => {
+        const res = await api.post('/submissions', {
+            questionName: question.questionName,
+            code,
+            language,
+        });
+        console.log(res);
+    };
+
     return (
         <div>
-            <Link to="/">
+            <Link to="/">    const question = questions.filter((item) => item.questionName === questionName)[0];
+
                 <img
-                    onClick={routeChange}
                     src={HomeButton}
                     alt="home-button.svg"
                     className="home-button"
