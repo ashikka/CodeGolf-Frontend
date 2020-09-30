@@ -4,8 +4,8 @@ import propTypes from 'prop-types';
 import Question from '../../components/question/question';
 import Footer from '../../components/footer/footer';
 import './QuestionsPage.css';
-// import Leaderboard from '../../components/leaderboard/leaderboard';
 import ModalBox from '../../components/modal/modal';
+import Leaderboard from '../../components/leaderboard/leaderboard';
 
 const QuestionsPage = ({ questions }) => (
     <>
@@ -27,6 +27,7 @@ const QuestionsPage = ({ questions }) => (
                         }
                     </div>
                 </div>
+                <Leaderboard />
             </div>
             <Footer />
         </div>

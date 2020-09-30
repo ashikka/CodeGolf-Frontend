@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import AceEditor from 'react-ace';
 import { Dropdown } from 'react-bootstrap';
@@ -71,7 +71,7 @@ const QuestionPage = ({ question }) => {
 
     return (
         <div>
-            <Link to="/">    const question = questions.filter((item) => item.questionName === questionName)[0];
+            <Link to="/">
 
                 <img
                     src={HomeButton}
