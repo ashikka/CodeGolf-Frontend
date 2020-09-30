@@ -1,0 +1,13 @@
+.testcase-box{
+    width: 80%;
+    height: 250%;
+    background-color: transparent;
+    margin-top: 2rem;
+    border: 5px solid #3cc6f2;
+}
+
+.testcase{
+    text-align: center;
+    padding: 1rem;
+    border: 2px solid #3cc6f2;
+}

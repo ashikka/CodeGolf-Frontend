@@ -25,10 +25,12 @@ h1{
     max-height:100%;;
 }
 
-.modal-content{
+.modal-content > *{
     background-color: black;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.sponsor{
+    width: 100%;
 }
