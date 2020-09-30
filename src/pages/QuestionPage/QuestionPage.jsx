@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import AceEditor from 'react-ace';
 import { Dropdown } from 'react-bootstrap';
@@ -25,12 +25,13 @@ import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
 const QuestionPage = ({ questions }) => {
     const { questionName } = useParams();
-    const question = questions.filter((item) => item.questionName === questionName)[0];
-    const history = useHistory();
 
-    const routeChange = () => {
-        history.push('/');
-    };
+    const [question] = useState(questions.find((item) => item.questionName === questionName));
+
+    // const history = useHistory();
+    // const routeChange = () => {
+    //     history.push('/');
+    // };
 
     const langList = [
         'Bash',
@@ -69,7 +70,6 @@ const QuestionPage = ({ questions }) => {
         <div>
             <Link to="/">
                 <img
-                    onClick={routeChange}
                     src={HomeButton}
                     alt="home-button.svg"
                     className="home-button"
