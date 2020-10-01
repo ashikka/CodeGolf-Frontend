@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
@@ -10,6 +13,7 @@ import propTypes from 'prop-types';
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 import ModalBox from '../../components/modal/modal';
+import TestCaseBox from '../../components/testcase/testcase';
 import api from '../../api/api';
 
 import 'ace-builds/src-noconflict/mode-java';
@@ -156,6 +160,7 @@ const QuestionPage = ({ question, leaderboard }) => {
                     <button type="button" className="submit-button" onClick={submitSolution}>
                         Run
                     </button>
+                    <TestCaseBox />
                 </div>
                 <Leaderboard leaderboard={leaderboard} />
             </div>
