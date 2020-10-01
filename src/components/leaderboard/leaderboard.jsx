@@ -1,8 +1,9 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import './leaderboard.css';
 
-const Leaderboard = () => (
+const Leaderboard = ({ leaderboard }) => (
     <div className="leaderboard">
         <div className="leaderboard-heading heading">Leaderboard</div>
         <div className="leaderboard">
@@ -15,25 +16,32 @@ const Leaderboard = () => (
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className="position">1</td>
-                        <td className="name">Name1</td>
-                        <td className="score">6969</td>
-                    </tr>
-                    <tr>
-                        <td className="position">2</td>
-                        <td className="name">Name2</td>
-                        <td className="score">6969</td>
-                    </tr>
-                    <tr>
-                        <td className="position">3</td>
-                        <td className="name">Name3</td>
-                        <td className="score">6969</td>
-                    </tr>
+                    {leaderboard.users.map((user, i) => (
+                        <tr key={Math.random() * 1000}>
+                            <td className="position">{i + 1}</td>
+                            <td className="name">{user.username}</td>
+                            <td className="score">{user.score}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
     </div>
 );
+
+Leaderboard.propTypes = {
+    leaderboard: propTypes.shape({
+        questionName: propTypes.string.isRequired,
+        users: propTypes.arrayOf(
+            propTypes.shape({
+                username: propTypes.string.isRequired,
+                score: propTypes.number.isRequired,
+                questionsSolved: propTypes.number.isRequired,
+                slength: propTypes.number.isRequired,
+                latestTime: propTypes.instanceOf(Date).isRequired,
+            }),
+        ),
+    }).isRequired,
+};
 
 export default Leaderboard;

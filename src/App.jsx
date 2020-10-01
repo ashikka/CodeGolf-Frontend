@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import api from './api';
+import { getQuestions, getAllLeaderboards } from './api/requests';
+
 import Header from './components/header/header';
 import HomePage from './pages/HomePage/HomePage';
 import QuestionPage from './pages/QuestionPage/QuestionPage';
@@ -9,13 +10,19 @@ import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 
 const App = () => {
     const [questions, setQuestions] = useState([]);
+    const [leaderboards, setLeaderboards] = useState([]);
 
     useEffect(() => {
-        const getQuestions = async () => {
-            const res = await api.get('/questions');
-            setQuestions(res.data.questions);
+        const getData = async () => {
+            const res = await Promise.all([getQuestions, getAllLeaderboards]);
+            setQuestions(res[0].questions);
+            setLeaderboards(res[1].leaderboards);
         };
-        getQuestions();
+        getData();
+        setInterval(async () => {
+            const res = await getAllLeaderboards();
+            setLeaderboards(res.leaderboards);
+        }, 20000);
     }, []);
 
     return (
@@ -26,7 +33,12 @@ const App = () => {
                     <HomePage />
                 </Route>
                 <Route path="/questions">
-                    <QuestionsPage questions={questions} />
+                    <QuestionsPage
+                        questions={questions}
+                        leaderboard={leaderboards.find(
+                            (leaderboard) => leaderboard.questionName === 'Global',
+                        )}
+                    />
                 </Route>
                 <Route
                     path="/question/:questionName"
@@ -38,7 +50,15 @@ const App = () => {
                         if (!question) {
                             return <h1>LOADING....</h1>;
                         }
-                        return <QuestionPage question={question} />;
+                        return (
+                            <QuestionPage
+                                question={question}
+                                leaderboard={leaderboards.find(
+                                    (leaderboard) => leaderboard.questionName
+                                        === question.questionName,
+                                )}
+                            />
+                        );
                     }}
                 />
             </Switch>

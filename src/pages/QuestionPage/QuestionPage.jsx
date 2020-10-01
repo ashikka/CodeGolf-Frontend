@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import AceEditor from 'react-ace';
 import { Dropdown } from 'react-bootstrap';
@@ -10,7 +10,7 @@ import propTypes from 'prop-types';
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 import ModalBox from '../../components/modal/modal';
-import api from '../../api';
+import api from '../../api/api';
 
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/mode-javascript';
@@ -26,7 +26,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-const QuestionPage = ({ question }) => {
+const QuestionPage = ({ question, leaderboard }) => {
     const langList = [
         'Bash',
         'Brainfuck',
@@ -65,6 +65,7 @@ const QuestionPage = ({ question }) => {
             questionName: question.questionName,
             code,
             language,
+            submitTime: Date.now(),
         });
         console.log(res);
     };
@@ -72,7 +73,6 @@ const QuestionPage = ({ question }) => {
     return (
         <div>
             <Link to="/">
-
                 <img
                     src={HomeButton}
                     alt="home-button.svg"
@@ -122,9 +122,7 @@ const QuestionPage = ({ question }) => {
                                         {langList.map((lang) => (
                                             <Dropdown.Item
                                                 className="dropdown-item"
-                                                onClick={(e) => setLanguage(
-                                                    e.target.text,
-                                                )}
+                                                onClick={(e) => setLanguage(e.target.text)}
                                             >
                                                 {lang}
                                             </Dropdown.Item>
@@ -155,11 +153,11 @@ const QuestionPage = ({ question }) => {
                         }}
                     />
 
-                    <button type="button" className="submit-button">
+                    <button type="button" className="submit-button" onClick={submitSolution}>
                         Run
                     </button>
                 </div>
-                <Leaderboard />
+                <Leaderboard leaderboard={leaderboard} />
             </div>
             <Footer />
         </div>
@@ -167,10 +165,23 @@ const QuestionPage = ({ question }) => {
 };
 
 QuestionPage.propTypes = {
-    questions: propTypes.arrayOf(propTypes.shape({
+    question: propTypes.shape({
         questionName: propTypes.string.isRequired,
+        question: propTypes.string.isRequired,
         points: propTypes.number.isRequired,
-    })).isRequired,
+    }).isRequired,
+    leaderboard: propTypes.shape({
+        questionName: propTypes.string.isRequired,
+        users: propTypes.arrayOf(
+            propTypes.shape({
+                username: propTypes.string.isRequired,
+                score: propTypes.number.isRequired,
+                questionsSolved: propTypes.number.isRequired,
+                slength: propTypes.number.isRequired,
+                latestTime: propTypes.instanceOf(Date).isRequired,
+            }),
+        ),
+    }).isRequired,
 };
 
 export default QuestionPage;
