@@ -58,6 +58,8 @@ const QuestionPage = ({ question, leaderboard }) => {
 
     const [code, setCode] = useState('');
     const [characters, setCharacter] = useState(0);
+    const [testCaseBoxStatus, setTestCaseBoxStatus] = useState('hidden');
+    const [compilerResponse, setCompilerResponse] = useState({});
 
     const onChangeFunction = (value) => {
         setCode(value);
@@ -65,13 +67,15 @@ const QuestionPage = ({ question, leaderboard }) => {
     };
 
     const submitSolution = async () => {
+        setTestCaseBoxStatus('compiling');
         const res = await api.post('/submissions', {
             questionName: question.questionName,
             code,
             language,
             submitTime: Date.now(),
         });
-        console.log(res);
+        setCompilerResponse(res.data.compilerResponse);
+        setTestCaseBoxStatus('results');
     };
 
     return (
@@ -90,15 +94,26 @@ const QuestionPage = ({ question, leaderboard }) => {
                     <div className="nav-buttons">
                         <div>
                             <a href="https://www.csivit.com" className="prev">
-                                <span>&lt;&lt; Prev</span>
+                                <span>
+                                    {'<<'}
+                                    {' '}
+                                    Prev
+                                </span>
                             </a>
                             <a href="https://www.csivit.com" className="next">
-                                <span>Next &gt;&gt;</span>
+                                <span>
+                                    Next
+                                    {'>>'}
+                                </span>
                             </a>
                         </div>
                         <div>
-                            <Link to="/" className="next">
-                                <span>&lt;&lt; Back to Questions</span>
+                            <Link to="/questions" className="next">
+                                <span>
+                                    {'<<'}
+                                    {' '}
+                                    Back to Questions
+                                </span>
                             </Link>
                         </div>
                     </div>
@@ -160,7 +175,7 @@ const QuestionPage = ({ question, leaderboard }) => {
                     <button type="button" className="submit-button" onClick={submitSolution}>
                         Run
                     </button>
-                    <TestCaseBox />
+                    <TestCaseBox status={testCaseBoxStatus} compilerResponse={compilerResponse} />
                 </div>
                 <Leaderboard leaderboard={leaderboard} />
             </div>

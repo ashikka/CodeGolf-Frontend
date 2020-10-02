@@ -14,9 +14,10 @@ const App = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const res = await Promise.all([getQuestions, getAllLeaderboards]);
-            setQuestions(res[0].questions);
-            setLeaderboards(res[1].leaderboards);
+            const resL = await getAllLeaderboards();
+            const resQ = await getQuestions();
+            setQuestions(resQ.questions);
+            setLeaderboards(resL.leaderboards);
         };
         getData();
         setInterval(async () => {
@@ -32,14 +33,23 @@ const App = () => {
                 <Route exact path="/">
                     <HomePage />
                 </Route>
-                <Route path="/questions">
-                    <QuestionsPage
-                        questions={questions}
-                        leaderboard={leaderboards.find(
-                            (leaderboard) => leaderboard.questionName === 'Global',
-                        )}
-                    />
-                </Route>
+                <Route
+                    path="/questions"
+                    render={() => {
+                        const leaderboard = leaderboards.find(
+                            (lbd) => lbd.questionName === 'Global',
+                        );
+                        if (!questions || !leaderboard) {
+                            return <h1> LOADING...</h1>;
+                        }
+                        return (
+                            <QuestionsPage
+                                questions={questions}
+                                leaderboard={leaderboard}
+                            />
+                        );
+                    }}
+                />
                 <Route
                     path="/question/:questionName"
                     render={(props) => {
@@ -47,16 +57,17 @@ const App = () => {
                             (item) => item.questionName
                                 === props.match.params.questionName,
                         )[0];
-                        if (!question) {
+                        const leaderboard = leaderboards.find(
+                            (lbd) => lbd.questionName
+                                === question.questionName,
+                        );
+                        if (!question || !leaderboard) {
                             return <h1>LOADING....</h1>;
                         }
                         return (
                             <QuestionPage
                                 question={question}
-                                leaderboard={leaderboards.find(
-                                    (leaderboard) => leaderboard.questionName
-                                        === question.questionName,
-                                )}
+                                leaderboard={leaderboard}
                             />
                         );
                     }}
