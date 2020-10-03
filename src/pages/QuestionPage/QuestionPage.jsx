@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import AceEditor from 'react-ace';
@@ -60,6 +60,7 @@ const QuestionPage = ({ question, leaderboard }) => {
     const [characters, setCharacter] = useState(0);
     const [testCaseBoxStatus, setTestCaseBoxStatus] = useState('hidden');
     const [compilerResponse, setCompilerResponse] = useState({});
+    const [tempCompilerResponse, setTempCompilerResponse] = useState({});
 
     const onChangeFunction = (value) => {
         setCode(value);
@@ -67,16 +68,25 @@ const QuestionPage = ({ question, leaderboard }) => {
     };
 
     const submitSolution = async () => {
-        setTestCaseBoxStatus('compiling');
+        setTempCompilerResponse({ status: 'compiling', tests:[] });
         const res = await api.post('/submissions', {
             questionName: question.questionName,
             code,
             language,
             submitTime: Date.now(),
         });
-        setCompilerResponse(res.data.compilerResponse);
-        setTestCaseBoxStatus('results');
+        setTempCompilerResponse(res.data.compilerResponse);
     };
+
+    useEffect(() => {
+        setCompilerResponse(tempCompilerResponse);
+        console.log('COMPILER RESPONSE:', compilerResponse);
+        if (compilerResponse.id) setTestCaseBoxStatus('results');
+        else if (compilerResponse.status === 'compiling')
+            setTestCaseBoxStatus('compiling');
+        else setTestCaseBoxStatus('hidden');
+        console.log(testCaseBoxStatus);
+    });
 
     return (
         <div>
@@ -94,11 +104,7 @@ const QuestionPage = ({ question, leaderboard }) => {
                     <div className="nav-buttons">
                         <div>
                             <a href="https://www.csivit.com" className="prev">
-                                <span>
-                                    {'<<'}
-                                    {' '}
-                                    Prev
-                                </span>
+                                <span>{'<<'} Prev</span>
                             </a>
                             <a href="https://www.csivit.com" className="next">
                                 <span>
@@ -109,11 +115,7 @@ const QuestionPage = ({ question, leaderboard }) => {
                         </div>
                         <div>
                             <Link to="/questions" className="next">
-                                <span>
-                                    {'<<'}
-                                    {' '}
-                                    Back to Questions
-                                </span>
+                                <span>{'<<'} Back to Questions</span>
                             </Link>
                         </div>
                     </div>
@@ -141,7 +143,9 @@ const QuestionPage = ({ question, leaderboard }) => {
                                         {langList.map((lang) => (
                                             <Dropdown.Item
                                                 className="dropdown-item"
-                                                onClick={(e) => setLanguage(e.target.text)}
+                                                onClick={(e) =>
+                                                    setLanguage(e.target.text)
+                                                }
                                             >
                                                 {lang}
                                             </Dropdown.Item>
@@ -210,7 +214,7 @@ QuestionPage.propTypes = {
                 questionsSolved: propTypes.number.isRequired,
                 slength: propTypes.number.isRequired,
                 latestTime: propTypes.instanceOf(Date).isRequired,
-            }),
+            })
         ),
     }).isRequired,
 };

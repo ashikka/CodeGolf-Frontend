@@ -9,17 +9,14 @@ const TestCaseBox = ({ status, compilerResponse }) => {
             return null;
         }
         if (status === 'compiling') {
-            return (
-                <div className="compiling-box">
-                    COMPILING...
-                </div>
-            );
+            return <div className="compiling-box">COMPILING...</div>;
         }
         return (
             <div className="text-case-div">
-                {compilerResponse.tests.forEach((test, i) => {
+                {console.log('PRITNING: ', compilerResponse.tests)}
+                {compilerResponse.tests.map((test, i) => {
                     if (i === 0) {
-                        if (test.remarks === 'Pass') {
+                        if (test.remarks !== 'Pass') {
                             return (
                                 <div>
                                     <div className="test-case-box">

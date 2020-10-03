@@ -11,3 +11,7 @@
     padding: 1rem;
     border: 2px solid #3cc6f2;
 }
+
+.sample-case-detail {
+    white-space: pre-line;
+}
