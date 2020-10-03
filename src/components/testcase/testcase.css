@@ -1,4 +1,4 @@
-.testcase-box{
+.test-case-div{
     width: 80%;
     height: 250%;
     background-color: transparent;
@@ -6,12 +6,19 @@
     border: 5px solid #3cc6f2;
 }
 
-.testcase{
+.compiling-box{
+    margin-top: 2rem;
+}
+
+.test-case-box{
+    font-size: 70%;
     text-align: center;
     padding: 1rem;
     border: 2px solid #3cc6f2;
+    margin-bottom: 2rem;
 }
 
 .sample-case-detail {
     white-space: pre-line;
+    text-decoration-style: underline solid  #3cc6f2;
 }

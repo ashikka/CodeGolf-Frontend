@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import ModalBox from '../../components/modal/modal';
 import './HomePage.css';
 import codegolf from '../../assets/HomePage/codegolf.gif';
+import login from '../assets/HomePage/login.gif';
 
 const HomePage = () => {
     const history = useHistory();
@@ -22,7 +23,7 @@ const HomePage = () => {
             <div className="home-container">
                 <div className="home-title">
                     <img src={codegolf} className="codegolf-gif" alt="codegolf.gif" />
-                    <div className="home-button">Press any key to continue</div>
+                    <img src={login} className="home-button" alt="login.gif" />
                 </div>
             </div>
         </div>
