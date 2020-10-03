@@ -13,7 +13,7 @@ const Question = ({ question }) => (
             <div className="points">
                 {question.points}
                 {' '}
-                pts.
+                pts
             </div>
             <Link to={`/question/${question.questionName}`}><button type="button" className="solve-button">Solve</button></Link>
         </div>

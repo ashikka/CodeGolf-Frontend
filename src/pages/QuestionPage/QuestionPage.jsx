@@ -30,7 +30,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-const QuestionPage = ({ question, leaderboard }) => {
+const QuestionPage = ({ question, leaderboard, user }) => {
     const langList = [
         'Bash',
         'Brainfuck',
@@ -125,6 +125,10 @@ const QuestionPage = ({ question, leaderboard }) => {
                                 </span>
                             </Link>
                         </div>
+                    </div>
+                    <div className="user-name">
+                        Welcome,
+                        {user.username}
                     </div>
                     <div className="question-heading heading">
                         {question.questionName}

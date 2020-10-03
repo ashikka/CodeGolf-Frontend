@@ -97,6 +97,7 @@ const App = () => {
                                 <QuestionsPage
                                     questions={questions}
                                     leaderboard={leaderboard}
+                                    user={loggedInUser}
                                 />
                             );
                         }}
@@ -118,6 +119,7 @@ const App = () => {
                                 <QuestionPage
                                     question={question}
                                     leaderboard={leaderboard}
+                                    user={loggedInUser}
                                 />
                             );
                         }}
