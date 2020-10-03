@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
@@ -47,7 +48,7 @@ const QuestionPage = ({ question, leaderboard, user }) => {
         'Swift',
     ];
 
-    const [language, setLanguage] = useState('Select');
+    const [language, setLanguage] = useState('Python');
 
     let mode = '';
     if (language === 'C' || language === 'C++') {
@@ -76,6 +77,16 @@ const QuestionPage = ({ question, leaderboard, user }) => {
             submitTime: Date.now(),
         });
         setTempCompilerResponse(res.data.compilerResponse);
+    };
+
+    const onSubmit = () => {
+        if (code.length === 0) {
+            alert('Please enter you code');
+        }
+
+        submitSolution();
+
+        return null;
     };
 
     useEffect(() => {
