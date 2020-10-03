@@ -30,6 +30,16 @@ const App = () => {
         setLoggedInUser(undefined);
     };
 
+    const getPrevAndNextQs = (question) => {
+        const index = questions.indexOf(question);
+        const length = questions.length;
+        if (index === 0) {
+            return [undefined, questions[index + 1]];
+        } if (index === length - 1) {
+            return [questions[index - 1], undefined];
+        } return [questions[index - 1], questions[index + 1]];
+    };
+
     const isLoggedIn = async () => {
         const token = localStorage.getItem('token');
         // console.log('Token inside isLoggedIn: ', token);
@@ -105,10 +115,10 @@ const App = () => {
                     <Route
                         path="/question/:questionName"
                         render={(props) => {
-                            const question = questions.filter(
+                            const question = questions.find(
                                 (item) => item.questionName
                                     === props.match.params.questionName,
-                            )[0];
+                            );
                             const leaderboard = leaderboards.find(
                                 (lbd) => lbd.questionName === question.questionName,
                             );
@@ -120,6 +130,7 @@ const App = () => {
                                     question={question}
                                     leaderboard={leaderboard}
                                     user={loggedInUser}
+                                    prevAndNextQs={getPrevAndNextQs(question)}
                                 />
                             );
                         }}

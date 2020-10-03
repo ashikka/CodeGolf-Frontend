@@ -31,7 +31,9 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-const QuestionPage = ({ question, leaderboard, user }) => {
+const QuestionPage = ({
+    question, leaderboard, user, prevAndNextQs,
+}) => {
     const langList = [
         'Bash',
         'Brainfuck',
@@ -81,12 +83,55 @@ const QuestionPage = ({ question, leaderboard, user }) => {
 
     const onSubmit = () => {
         if (code.length === 0) {
-            swal('Please enter you code');
+            swal('Please enter your code');
+        } else {
+            submitSolution();
         }
 
-        submitSolution();
-
         return null;
+    };
+
+    const renderPrevAndNext = () => {
+        const prev = prevAndNextQs[0];
+        const next = prevAndNextQs[1];
+        if (prev !== undefined && next !== undefined) {
+            return (
+                <>
+                    <Link to={`/question/${prev.questionName}`} className="prev">
+                        <span>
+                            {'<<'}
+                            {' '}
+                            Prev
+                        </span>
+                    </Link>
+                    <Link to={`/question/${next.questionName}`} className="next">
+                        <span>
+                            Next
+                            {'>>'}
+                        </span>
+                    </Link>
+                </>
+            );
+        }
+        if (prev === undefined) {
+            return (
+                <Link to={`/question/${next.questionName}`} className="next">
+                    <span>
+                        Next
+                        {'>>'}
+                    </span>
+                </Link>
+            );
+        }
+        return (
+            <Link to={`/question/${prev.questionName}`} className="prev">
+                <span>
+                    {'<<'}
+                    {' '}
+                    Prev
+                </span>
+            </Link>
+        );
     };
 
     useEffect(() => {
@@ -113,19 +158,7 @@ const QuestionPage = ({ question, leaderboard, user }) => {
                 <div className="questions">
                     <div className="nav-buttons">
                         <div>
-                            <a href="https://www.csivit.com" className="prev">
-                                <span>
-                                    {'<<'}
-                                    {' '}
-                                    Prev
-                                </span>
-                            </a>
-                            <a href="https://www.csivit.com" className="next">
-                                <span>
-                                    Next
-                                    {'>>'}
-                                </span>
-                            </a>
+                            {renderPrevAndNext()}
                         </div>
                         <div>
                             <Link to="/questions" className="next">
@@ -199,7 +232,7 @@ const QuestionPage = ({ question, leaderboard, user }) => {
                     <button
                         type="button"
                         className="submit-button"
-                        onClick={submitSolution}
+                        onClick={onSubmit}
                     >
                         Run
                     </button>
