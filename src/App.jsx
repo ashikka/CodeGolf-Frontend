@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 
@@ -130,6 +131,10 @@ const App = () => {
         return (
             <div className="valid-url">
                 <img src={loginGIF} alt="login.gif" className="login-gif" />
+                <h1>
+                    Please login using the unique link that was provided to you in the email. If you did not receive the email, please contact us at
+                    <a href="https://discord.gg/xCQs6Fa">here</a>
+                </h1>
             </div>
         );
     };
