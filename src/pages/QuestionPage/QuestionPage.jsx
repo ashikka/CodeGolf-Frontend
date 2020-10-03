@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
@@ -10,6 +9,7 @@ import { Link } from 'react-router-dom';
 import AceEditor from 'react-ace';
 import { Dropdown } from 'react-bootstrap';
 import propTypes from 'prop-types';
+import swal from 'sweetalert';
 
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
@@ -81,7 +81,7 @@ const QuestionPage = ({ question, leaderboard }) => {
 
     const onSubmit = () => {
         if (code.length === 0) {
-            alert('Please enter you code');
+            swal('Please enter you code');
         }
 
         submitSolution();
