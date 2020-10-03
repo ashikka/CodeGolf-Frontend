@@ -7,12 +7,16 @@ import './QuestionsPage.css';
 import ModalBox from '../../components/modal/modal';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 
-const QuestionsPage = ({ questions, leaderboard }) => (
+const QuestionsPage = ({ questions, leaderboard, user }) => (
     <>
         <div>
             <ModalBox />
             <div className="content-area">
                 <div className="questions">
+                    <div className="user-name">
+                        Welcome,
+                        {user.username}
+                    </div>
                     <div className="question-heading heading">Challenges</div>
                     <div className="questions-ind">
                         {questions.map((question) => (

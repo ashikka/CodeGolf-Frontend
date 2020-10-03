@@ -22,8 +22,8 @@
     justify-content: space-between;
 }
 
-.questions-heading.heading{
-    font-size: 6rem;
+.question-heading {
+    font-size: 4rem !important;
 }
 
 .question-details,
@@ -123,4 +123,9 @@
 
 .home-button {
 	margin-left: 20px;
+}
+
+.user-name {
+    font-size: 3rem;
+    margin: 10px 0;
 }
