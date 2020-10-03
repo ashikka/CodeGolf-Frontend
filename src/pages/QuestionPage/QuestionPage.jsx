@@ -14,7 +14,7 @@ import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 import ModalBox from '../../components/modal/modal';
 import TestCaseBox from '../../components/testcase/testcase';
-import api from '../../api/api';
+import { api } from '../../api/api';
 
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/mode-javascript';
@@ -172,12 +172,23 @@ const QuestionPage = ({ question, leaderboard }) => {
                         }}
                     />
 
-                    <button type="button" className="submit-button" onClick={submitSolution}>
+                    <button
+                        type="button"
+                        className="submit-button"
+                        onClick={submitSolution}
+                    >
                         Run
                     </button>
-                    <TestCaseBox status={testCaseBoxStatus} compilerResponse={compilerResponse} />
+                    <TestCaseBox
+                        status={testCaseBoxStatus}
+                        compilerResponse={compilerResponse}
+                    />
                 </div>
-                <Leaderboard leaderboard={leaderboard} />
+                {leaderboard ? (
+                    <Leaderboard leaderboard={leaderboard} />
+                ) : (
+                    <div>{null}</div>
+                )}
             </div>
             <Footer />
         </div>
