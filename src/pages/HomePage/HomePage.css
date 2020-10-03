@@ -30,6 +30,10 @@ body {
   font-size: 5rem;
 }
 
+.press-key {
+  font-size: 5rem;
+}
+
 @media only screen and (max-width: 62.5rem) {
   .home-title {
     left: 45%;

@@ -14,11 +14,6 @@ body {
 	overflow-y: scroll;
 }
 
-.questions-ind {
-	max-height: 700px;
-	overflow-y: scroll;
-}
-
 .heading {
 	font-size: 3rem;
 	padding-bottom: 10px;

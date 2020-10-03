@@ -53,6 +53,13 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                         </div>
                     );
                 })}
+                <div className="result">
+                    {compilerResponse.tests.find(
+                        (test) => test.remarks === 'Fail',
+                    )
+                        ? 'SUBMISSION UNSUCCESSFUL'
+                        : 'SUBMISSION SUCCESSFUL'}
+                </div>
             </div>
         );
     };

@@ -14,6 +14,8 @@ import HomePage from './pages/HomePage/HomePage';
 import QuestionPage from './pages/QuestionPage/QuestionPage';
 import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 
+import loginGIF from './assets/HomePage/login.gif';
+
 const App = () => {
     const [loggedInUser, setLoggedInUser] = useState(undefined);
 
@@ -123,7 +125,11 @@ const App = () => {
                 </>
             );
         }
-        return <h1>Please login using correct url</h1>;
+        return (
+            <div className="valid-url">
+                <img src={loginGIF} alt="login.gif" className="login-gif" />
+            </div>
+        );
     };
 
     useEffect(() => {

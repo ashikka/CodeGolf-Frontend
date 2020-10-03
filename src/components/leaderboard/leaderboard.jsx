@@ -15,14 +15,21 @@ const Leaderboard = ({ leaderboard }) => (
                         <th className="score-heading">Score</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {leaderboard.users.map((user, i) => (
-                        <tr key={Math.random() * 1000}>
-                            <td className="position">{i + 1}</td>
-                            <td className="name">{user.username}</td>
-                            <td className="score">{user.score}</td>
-                        </tr>
-                    ))}
+                <tbody className="table-body">
+                    {leaderboard.users.map((user, i) => {
+                        if (user.score > 0) {
+                            return (
+                                <tr key={Math.random() * 1000}>
+                                    <td className="position">{i + 1}</td>
+                                    <td className="name">{user.username}</td>
+                                    <td className="score">
+                                        {Math.round(user.score)}
+                                    </td>
+                                </tr>
+                            );
+                        }
+                        return null;
+                    })}
                 </tbody>
             </table>
         </div>
