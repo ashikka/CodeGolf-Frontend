@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
@@ -76,6 +77,16 @@ const QuestionPage = ({ question, leaderboard }) => {
             submitTime: Date.now(),
         });
         setTempCompilerResponse(res.data.compilerResponse);
+    };
+
+    const onSubmit = () => {
+        if (code.length === 0) {
+            alert('Please enter you code');
+        }
+
+        submitSolution();
+
+        return null;
     };
 
     useEffect(() => {
