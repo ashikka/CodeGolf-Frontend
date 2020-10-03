@@ -36,6 +36,35 @@ const ModalBox = () => {
                                 The Computer Society of India is the largest body of computer professionals in India. To help push technology forward, we organise a wide range of workshops, conferences, events and competitions both technical and non-technical. This year we plan to host a Codegolf event which is a competitive coding event with a twist. CodeGolf challenges you to solve problems in the shortest code possible in the language of your choice.
                             </h3>
                         </div>
+                        <h1>Rules</h1>
+                        <ol>
+                            <li>
+                                Shorter code = More points
+                            </li>
+                            <li>
+                                The code length will be calculated using the number of characters.
+                            </li>
+                            <p>
+                                If you have the same score as some the tiebreakers in decreasing order of precedence are:
+                            </p>
+                            <ul>
+                                <li>
+                                    Number of questions solved: More the total number of questions solved, the higher your rank on the leaderboard.
+                                </li>
+                                <li>
+                                    Total number of characters of all submissions put together: Lesser the total number of characters, the higher your rank on the leaderboard/
+                                </li>
+                                <li>
+                                    Time latest of submission: Earlier your time of latest submission, the higher your rank on the leaderboard.
+                                </li>
+                            </ul>
+                            <li>
+                                Most importantly, have fun!
+                            </li>
+                            <li>
+                                You can be disqualified if found guilty on the grounds of plagiarism.
+                            </li>
+                        </ol>
                         <div>
                             <img className="sponsor" src={sponsors} alt="sponsors.png" />
 
