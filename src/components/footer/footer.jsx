@@ -22,14 +22,14 @@ const Footer = () => (
                 <a href="https://csivit.com">
                     <img src={csi} alt="CSI" className="main-logo csi-logo" />
                 </a>
-                <a href="https://csivit.com">
+                <a href="https://codegolf.csivit.com">
                     <img
                         src={codegolfBottom}
                         alt="CODEGOLF"
                         className="main-logo codegolf-logo"
                     />
                 </a>
-                <a href="https://csivit.com">
+                <a href="https://gravitas.vit.ac.in/">
                     <img
                         src={gravitas}
                         alt="GRAVITAS"
@@ -38,28 +38,28 @@ const Footer = () => (
                 </a>
             </div>
             <div className="social-logos">
-                <a href="https://csivit.com">
+                <a href="https://www.instagram.com/csivitu/">
                     <img
                         src={instagram}
                         alt="INSTAGRAM"
                         className="social-logo instagram-logo"
                     />
                 </a>
-                <a href="https://csivit.com">
+                <a href="https://www.facebook.com/csivitu/">
                     <img
                         src={facebook}
                         alt="FACEBOOK"
                         className="social-logo facebook-logo"
                     />
                 </a>
-                <a href="https://csivit.com">
+                <a href="https://twitter.com/csivitu">
                     <img
                         src={twitter}
                         alt="TWITTER"
                         className="social-logo twitter-logo"
                     />
                 </a>
-                <a href="https://csivit.com">
+                <a href="https://discord.gg/xCQs6Fa">
                     <img
                         src={discord}
                         alt="DISCORD"

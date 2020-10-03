@@ -47,7 +47,7 @@ const QuestionPage = ({ question, leaderboard }) => {
         'Swift',
     ];
 
-    const [language, setLanguage] = useState('Select');
+    const [language, setLanguage] = useState('Python');
 
     let mode = '';
     if (language === 'C' || language === 'C++') {

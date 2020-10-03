@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
@@ -32,13 +33,7 @@ const ModalBox = () => {
                     <div className="modal-content">
                         <div>
                             <h3>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.
+                                The Computer Society of India is the largest body of computer professionals in India. To help push technology forward, we organise a wide range of workshops, conferences, events and competitions both technical and non-technical. This year we plan to host a Codegolf event which is a competitive coding event with a twist. CodeGolf challenges you to solve problems in the shortest code possible in the language of your choice.
                             </h3>
                         </div>
                         <div>
