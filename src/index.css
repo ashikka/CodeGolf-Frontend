@@ -37,6 +37,10 @@ a {
 	display: block;
 	margin: 0 auto;
 }
+.not-eligible{
+	text-align: center;
+	margin-top: 40%;
+}
 
 .invalid-text {
 	display: block;

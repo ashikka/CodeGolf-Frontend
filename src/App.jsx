@@ -22,6 +22,7 @@ const App = () => {
 
     const [questions, setQuestions] = useState([]);
     const [leaderboards, setLeaderboards] = useState([]);
+    const [currentRound, setCurrentRound] = useState(1);
 
     const history = useHistory();
 
@@ -58,6 +59,7 @@ const App = () => {
                 // console.log('RES2: ', user);
                 if (user) {
                     setLoggedInUser(user);
+                    setCurrentRound(res.currentRound);
                 }
             }
         } else {
@@ -92,6 +94,22 @@ const App = () => {
                 getData();
             }
             // console.log('LOGGEDINUSER: ', loggedInUser);
+            if (currentRound > loggedInUser.round) {
+                return (
+                    <div className="not-eligible">
+                        <h1>
+                            You are not eligible for round:
+                            {' '}
+                            {currentRound}
+                            {' '}
+                            <br />
+                            :(
+                            <br />
+                            <h2>If you think this error should not happen, please contact us on discord. </h2>
+                        </h1>
+                    </div>
+                );
+            }
             return (
                 <>
                     <Route exact path="/">
