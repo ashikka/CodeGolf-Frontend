@@ -15,10 +15,38 @@
     text-align: center;
     padding: 1rem;
     border: 2px solid #3cc6f2;
-    margin-bottom: 2rem;
+    width: 200px;
 }
 
 .sample-case-detail {
     white-space: pre-line;
     text-decoration-style: underline solid  #3cc6f2;
+    margin-bottom: 30px;
+}
+
+.case-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon {
+    height: 20px;
+}
+
+.icon-div {
+    margin-left: 20px;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }

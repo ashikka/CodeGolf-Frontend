@@ -5,13 +5,19 @@
 }
 .modal-body{
     background-color: black;
-    height: 70rem;
+    height: 800px;
     text-align: center;
-    padding: 0%;
+    padding: 0 !important;
+    overflow-y: scroll;
+    font-size: 20px;
 }
 
-.modal-image{
-    height: 25rem;
+.section-heading {
+    font-size: 45px;
+}
+
+.rules-content {
+    text-align: left;
 }
 
 h1{

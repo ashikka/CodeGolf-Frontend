@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
+import tick from '../../assets/testcase/tick.svg';
+import cross from '../../assets/testcase/cross.svg';
+
 import './testcase.css';
 
 const TestCaseBox = ({ status, compilerResponse }) => {
@@ -18,10 +21,20 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                     if (i === 0) {
                         if (test.remarks !== 'Pass') {
                             return (
-                                <div>
-                                    <div className="test-case-box">
-                                        Sample Test Case
+                                <>
+                                    <div className="case-box">
+                                        <div className="test-case-box">
+                                            Sample Test Case
+                                        </div>
+                                        <div className="icon-div">
+                                            <img
+                                                src={cross}
+                                                alt="CROSS"
+                                                className="icon"
+                                            />
+                                        </div>
                                     </div>
+
                                     <div className="sample-case-detail">
                                         Expected Output:
                                         <br />
@@ -35,25 +48,52 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                                         <br />
                                         Error:
                                         <br />
-                                        {test.error}
+                                        {test.error ? test.error : 'No error'}
                                     </div>
-                                </div>
+                                </>
                             );
                         }
                         return (
-                            <div className="test-case-box">
-                                Sample Test Case
+                            <div className="case-box">
+                                <div className="test-case-box">
+                                    Sample Test Case
+                                </div>
+                                <div className="icon-div">
+                                    <img
+                                        src={tick}
+                                        alt="CROSS"
+                                        className="icon"
+                                    />
+                                </div>
                             </div>
                         );
                     }
                     return (
-                        <div className="test-case-box">
-                            Test Case
-                            {i + 1}
+                        <div className="case-box">
+                            <div className="test-case-box">
+                                Test Case
+                                {' '}
+                                {i + 1}
+                            </div>
+                            <div className="icon-div">
+                                <img
+                                    src={test.remarks === 'Pass' ? tick : cross}
+                                    alt="CROSS"
+                                    className="icon"
+                                />
+                            </div>
                         </div>
                     );
                 })}
-                <div className="result">
+                <div
+                    className={`${
+                        compilerResponse.tests.find(
+                            (test) => test.remarks === 'Fail',
+                        )
+                            ? 'red'
+                            : 'green'
+                    } result`}
+                >
                     {compilerResponse.tests.find(
                         (test) => test.remarks === 'Fail',
                     )

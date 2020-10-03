@@ -38,6 +38,12 @@ a {
 	margin: 0 auto;
 }
 
+.invalid-text {
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+}
+
 @media only screen and (max-width: 1000px) {
 	.login-gif {
 		width: 80%;

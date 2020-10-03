@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 
 import './question.css';
 
-const Question = ({ question }) => (
+const Question = ({ question, numberOfSolves }) => (
     <div className="question">
         <div className="question-text">
             {question.questionName}
@@ -14,6 +14,11 @@ const Question = ({ question }) => (
                 {question.points}
                 {' '}
                 pts
+            </div>
+            <div>
+                {numberOfSolves}
+                {' '}
+                solves
             </div>
             <Link to={`/question/${question.questionName}`}><button type="button" className="solve-button">Solve</button></Link>
         </div>

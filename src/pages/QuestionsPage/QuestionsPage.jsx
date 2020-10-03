@@ -8,7 +8,7 @@ import './QuestionsPage.css';
 import ModalBox from '../../components/modal/modal';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 
-const QuestionsPage = ({ questions, leaderboard, user }) => (
+const QuestionsPage = ({ questions, leaderboards, user }) => (
     <>
         <div>
             <ModalBox />
@@ -24,11 +24,16 @@ const QuestionsPage = ({ questions, leaderboard, user }) => (
                             <Question
                                 key={Math.random() * 1000}
                                 question={question}
+                                numberOfSolves={leaderboards.find((leaderboard) => leaderboard.questionName === question.questionName).users.filter((user) => user.username !== '--').length}
                             />
                         ))}
                     </div>
                 </div>
-                <Leaderboard leaderboard={leaderboard} />
+                <Leaderboard
+                    leaderboard={leaderboards.find(
+                        (leaderboard) => leaderboard.questionName === 'Global',
+                    )}
+                />
             </div>
             <Footer />
         </div>

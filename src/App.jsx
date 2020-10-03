@@ -33,12 +33,14 @@ const App = () => {
 
     const getPrevAndNextQs = (question) => {
         const index = questions.indexOf(question);
-        const length = questions.length;
+        const { length } = questions;
         if (index === 0) {
             return [undefined, questions[index + 1]];
-        } if (index === length - 1) {
+        }
+        if (index === length - 1) {
             return [questions[index - 1], undefined];
-        } return [questions[index - 1], questions[index + 1]];
+        }
+        return [questions[index - 1], questions[index + 1]];
     };
 
     const isLoggedIn = async () => {
@@ -107,7 +109,7 @@ const App = () => {
                             return (
                                 <QuestionsPage
                                     questions={questions}
-                                    leaderboard={leaderboard}
+                                    leaderboards={leaderboards}
                                     user={loggedInUser}
                                 />
                             );
@@ -142,10 +144,13 @@ const App = () => {
         return (
             <div className="valid-url">
                 <img src={loginGIF} alt="login.gif" className="login-gif" />
-                <h1>
-                    Please login using the unique link that was provided to you in the email. If you did not receive the email, please contact us at
-                    <a href="https://discord.gg/xCQs6Fa">here</a>
-                </h1>
+                <h2 className="invalid-text">
+                    Please login using the unique link that was provided to you
+                    in the email. If you did not receive the email, please
+                    contact us
+                    {' '}
+                    <a href="https://discord.gg/xCQs6Fa"><u>here</u></a>
+                </h2>
             </div>
         );
     };
