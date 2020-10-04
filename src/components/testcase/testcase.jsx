@@ -19,7 +19,7 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                 {console.log('PRITNING: ', compilerResponse.tests)}
                 {compilerResponse.tests.map((test, i) => {
                     if (i === 0) {
-                        if (test.remarks !== 'Pass') {
+                        if (test.remarks === 'Fail') {
                             return (
                                 <>
                                     <div className="case-box">
@@ -49,6 +49,27 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                                         Error:
                                         <br />
                                         {test.error ? test.error : 'No error'}
+                                    </div>
+                                </>
+                            );
+                        } if (test.remarks === 'Time limit exceeded') {
+                            return (
+                                <>
+                                    <div className="case-box">
+                                        <div className="test-case-box">
+                                            Sample Test Case
+                                        </div>
+                                        <div className="icon-div">
+                                            <img
+                                                src={cross}
+                                                alt="CROSS"
+                                                className="icon"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="sample-case-detail">
+                                        TIMEOUT ERROR
                                     </div>
                                 </>
                             );
@@ -88,14 +109,14 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                 <div
                     className={`${
                         compilerResponse.tests.find(
-                            (test) => test.remarks === 'Fail',
+                            (test) => test.remarks === 'Fail' || test.remarks === 'Time limit exceeded',
                         )
                             ? 'red'
                             : 'green'
                     } result`}
                 >
                     {compilerResponse.tests.find(
-                        (test) => test.remarks === 'Fail',
+                        (test) => test.remarks === 'Fail' || test.remarks === 'Time limit exceeded',
                     )
                         ? 'SUBMISSION UNSUCCESSFUL'
                         : 'SUBMISSION SUCCESSFUL'}

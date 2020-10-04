@@ -46,3 +46,8 @@ th {
 .leaderboard-table::-webkit-scrollbar-track {
 	background-color: black;
 }
+
+.leaderboard-inner {
+	max-height: 900px;
+	overflow-y: scroll;
+}
