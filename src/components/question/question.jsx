@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-
 import './question.css';
 
 const Question = ({ question, numberOfSolves }) => (
