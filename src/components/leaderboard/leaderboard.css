@@ -4,6 +4,7 @@
 	max-height: 600px;
 	overflow-y: scroll;
 	font-size: 2.5rem;
+	max-width: 600px;
 }
 
 th, td {
@@ -23,4 +24,13 @@ th {
 .table-body {
 	max-height: 600px;
 	overflow-y: scroll;
+}
+
+.no-solves {
+	text-align: center;
+	column-span: all;
+}
+
+.code-icon {
+	height: 20px;
 }

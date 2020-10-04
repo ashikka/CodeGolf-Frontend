@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import propTypes from 'prop-types';
@@ -24,7 +25,7 @@ const QuestionsPage = ({ questions, leaderboards, user }) => (
                             <Question
                                 key={Math.random() * 1000}
                                 question={question}
-                                numberOfSolves={leaderboards.find((leaderboard) => leaderboard.questionName === question.questionName).users.filter((user) => user.username !== '--').length}
+                                numberOfSolves={leaderboards.find((leaderboard) => leaderboard.questionName === question.questionName).users.length}
                             />
                         ))}
                     </div>

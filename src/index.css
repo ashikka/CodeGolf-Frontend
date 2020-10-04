@@ -44,8 +44,43 @@ a {
 	text-align: center;
 }
 
+h2 {
+	font-size: 3.5rem !important;
+}
+
+a {
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+	.content-area {
+		flex-direction: column;
+	}
+}
+
 @media only screen and (max-width: 1000px) {
+	html {
+		font-size: 60%;
+	}
 	.login-gif {
 		width: 80%;
 	}
 }
+
+@media only screen and (max-width: 600px) {
+	html {
+		font-size: 50%;
+	}
+	.main-logos {
+		flex-direction: column;
+	}
+
+	.main-logs > * {
+		margin-bottom: 20px;
+	}
+
+	.made-by-csivit {
+		display: none;
+	}
+}
+
