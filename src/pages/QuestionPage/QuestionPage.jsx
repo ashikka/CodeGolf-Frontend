@@ -151,7 +151,7 @@ const QuestionPage = ({
         else if (compilerResponse.status === 'compiling') setTestCaseBoxStatus('compiling');
         else setTestCaseBoxStatus('hidden');
         console.log(testCaseBoxStatus);
-    }, []);
+    });
 
     return (
         <div>
