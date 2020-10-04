@@ -12,7 +12,7 @@ import { setAuthToken } from './api/api';
 
 import Header from './components/header/header';
 import HomePage from './pages/HomePage/HomePage';
-import QuestionPage from './pages/QuestionPage/QuestionPage';
+// import QuestionPage from './pages/QuestionPage/QuestionPage';
 import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 
 import loginGIF from './assets/HomePage/login.gif';
@@ -32,17 +32,17 @@ const App = () => {
         setLoggedInUser(undefined);
     };
 
-    const getPrevAndNextQs = (question) => {
-        const index = questions.indexOf(question);
-        const { length } = questions;
-        if (index === 0) {
-            return [undefined, questions[index + 1]];
-        }
-        if (index === length - 1) {
-            return [questions[index - 1], undefined];
-        }
-        return [questions[index - 1], questions[index + 1]];
-    };
+    // const getPrevAndNextQs = (question) => {
+    //     const index = questions.indexOf(question);
+    //     const { length } = questions;
+    //     if (index === 0) {
+    //         return [undefined, questions[index + 1]];
+    //     }
+    //     if (index === length - 1) {
+    //         return [questions[index - 1], undefined];
+    //     }
+    //     return [questions[index - 1], questions[index + 1]];
+    // };
 
     const isLoggedIn = async () => {
         const token = localStorage.getItem('token');
@@ -133,7 +133,7 @@ const App = () => {
                             );
                         }}
                     />
-                    <Route
+                    {/* <Route
                         path="/question/:questionName"
                         render={(props) => {
                             const question = questions.find(
@@ -155,7 +155,7 @@ const App = () => {
                                 />
                             );
                         }}
-                    />
+                    /> */}
                 </>
             );
         }
