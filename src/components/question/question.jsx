@@ -29,6 +29,7 @@ Question.propTypes = {
         questionName: propTypes.string.isRequired,
         points: propTypes.number.isRequired,
     }).isRequired,
+    numberOfSolves: propTypes.number.isRequired,
 };
 
 export default Question;
