@@ -98,7 +98,7 @@ const TestCaseBox = ({ status, compilerResponse }) => {
                             </div>
                             <div className="icon-div">
                                 <img
-                                    src={test.remarks === 'Pass' ? tick : cross}
+                                    src={test.remarks === 'Fail' || test.remarks === 'Time limit exceeded' ? cross : tick}
                                     alt="CROSS"
                                     className="icon"
                                 />
