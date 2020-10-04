@@ -76,10 +76,12 @@ const QuestionPage = ({
 
     const submitSolution = async () => {
         setTempCompilerResponse({ status: 'compiling', tests: [] });
+
+        const lang = language === 'C++' ? 'Cplusplus' : language;
         const res = await api.post('/submissions', {
             questionName: question.questionName,
             code,
-            language,
+            lang,
             submitTime: Date.now(),
         });
         setTempCompilerResponse(res.data.compilerResponse);
