@@ -13,7 +13,7 @@ import madeByCSI from '../../assets/footer/madewithbycsi.png';
 import './footer.css';
 
 const Footer = () => (
-    <div>
+    <div className="bottom-footer">
         <div className="bottom">
             <img src={bottomImage} alt="Bottom" className="bottom-image" />
         </div>

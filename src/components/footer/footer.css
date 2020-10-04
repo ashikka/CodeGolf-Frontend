@@ -1,3 +1,7 @@
+.bottom-footer {
+	margin-bottom: 1.5vh;
+}
+
 .bottom {
 	width: 100%
 }
@@ -13,6 +17,7 @@
 
 .social-logo  {
 	height: 30px;
+	margin-right: 10px;
 }
 
 .footer {
@@ -25,6 +30,7 @@
 
 .main-logos, .social-logos {
 	display: flex;
+	justify-content: space-around;
 	align-items: center;
 }
 
@@ -32,17 +38,17 @@
 	margin: 30px 0;
 }
 
-.codegolf-logo{
-	margin: 0 30px;
+.social-logos {
+	width: 15vw;
 }
 
-.social-logo {
-	margin-right: 10px;
+.codegolf-logo{
+	margin: 0 30px;
 }
 
 .made-by-csivit img {
 	height: 20px;
 	position: absolute;
-	right: 10px;
+	right: 1vw;
 	bottom: 0;
 }
