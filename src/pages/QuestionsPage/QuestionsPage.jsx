@@ -16,8 +16,7 @@ const QuestionsPage = ({ questions, leaderboards, user }) => (
             <div className="content-area">
                 <div className="questions">
                     <div className="user-name">
-                        Welcome,
-                        {user.username}
+                        {`Welcome, ${user.username}`}
                     </div>
                     <div className="question-heading heading">Challenges</div>
                     <div className="questions-ind">

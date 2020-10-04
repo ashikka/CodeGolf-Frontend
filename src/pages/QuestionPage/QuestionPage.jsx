@@ -32,9 +32,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-const QuestionPage = ({
-    question, leaderboard, user, prevAndNextQs,
-}) => {
+const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
     const langList = [
         'Bash',
         'Brainfuck',
@@ -102,11 +100,7 @@ const QuestionPage = ({
                         to={`/question/${prev.questionName}`}
                         className="prev"
                     >
-                        <span>
-                            {'<<'}
-                            {' '}
-                            Prev
-                        </span>
+                        <span>{'<<'} Prev</span>
                     </Link>
                     <Link
                         to={`/question/${next.questionName}`}
@@ -132,11 +126,7 @@ const QuestionPage = ({
         }
         return (
             <Link to={`/question/${prev.questionName}`} className="prev">
-                <span>
-                    {'<<'}
-                    {' '}
-                    Prev
-                </span>
+                <span>{'<<'} Prev</span>
             </Link>
         );
     };
@@ -145,7 +135,8 @@ const QuestionPage = ({
         setCompilerResponse(tempCompilerResponse);
         console.log('COMPILER RESPONSE:', compilerResponse);
         if (compilerResponse.id) setTestCaseBoxStatus('results');
-        else if (compilerResponse.status === 'compiling') setTestCaseBoxStatus('compiling');
+        else if (compilerResponse.status === 'compiling')
+            setTestCaseBoxStatus('compiling');
         else setTestCaseBoxStatus('hidden');
         console.log(testCaseBoxStatus);
     });
@@ -167,17 +158,12 @@ const QuestionPage = ({
                         <div>{renderPrevAndNext()}</div>
                         <div>
                             <Link to="/questions" className="next">
-                                <span>
-                                    {'<<'}
-                                    {' '}
-                                    Back to Questions
-                                </span>
+                                <span>{'<<'} Back to Questions</span>
                             </Link>
                         </div>
                     </div>
                     <div className="user-name">
-                        Welcome,
-                        {user.username}
+                        {`Welcome, ${user.username}`}
                     </div>
                     <div className="question-heading heading">
                         {question.questionName}
@@ -205,7 +191,9 @@ const QuestionPage = ({
                                         {langList.map((lang) => (
                                             <Dropdown.Item
                                                 className="dropdown-item"
-                                                onClick={(e) => setLanguage(e.target.text)}
+                                                onClick={(e) =>
+                                                    setLanguage(e.target.text)
+                                                }
                                             >
                                                 {lang}
                                             </Dropdown.Item>
@@ -274,7 +262,7 @@ QuestionPage.propTypes = {
                 questionsSolved: propTypes.number.isRequired,
                 slength: propTypes.number.isRequired,
                 latestTime: propTypes.instanceOf(Date).isRequired,
-            }),
+            })
         ),
     }).isRequired,
 };

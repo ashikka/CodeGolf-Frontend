@@ -30,15 +30,18 @@ const Leaderboard = ({ leaderboard }) => (
                                     <tr key={Math.random() * 1000}>
                                         {user.code ? (
                                             <td>
-                                                <a
-                                                    onClick={() => swal(user.code)}
-                                                >
-                                                    <img
-                                                        src={codeIcon}
-                                                        alt="O"
-                                                        className="code-icon"
-                                                    />
-                                                </a>
+                                                {leaderboard.questionName
+                                                !== 'Global' ? (
+                                                    <a
+                                                        onClick={() => swal(user.code)}
+                                                    >
+                                                        <img
+                                                            src={codeIcon}
+                                                            alt="O"
+                                                            className="code-icon"
+                                                        />
+                                                        </a>
+                                                    ) : ''}
                                                 {' '}
                                                 {i + 1}
                                             </td>
