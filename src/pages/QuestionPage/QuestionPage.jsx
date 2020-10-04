@@ -81,7 +81,7 @@ const QuestionPage = ({
         const res = await api.post('/submissions', {
             questionName: question.questionName,
             code,
-            lang,
+            language: lang,
             submitTime: Date.now(),
         });
         setTempCompilerResponse(res.data.compilerResponse);
