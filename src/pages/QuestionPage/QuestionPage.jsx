@@ -32,7 +32,12 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
+const QuestionPage = ({
+    question,
+    leaderboard,
+    user,
+    prevAndNextQs,
+}) => {
     const langList = [
         'Bash',
         'Brainfuck',
@@ -100,7 +105,11 @@ const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
                         to={`/question/${prev.questionName}`}
                         className="prev"
                     >
-                        <span>{'<<'} Prev</span>
+                        <span>
+                            {'<<'}
+                            {' '}
+                            Prev
+                        </span>
                     </Link>
                     <Link
                         to={`/question/${next.questionName}`}
@@ -126,7 +135,11 @@ const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
         }
         return (
             <Link to={`/question/${prev.questionName}`} className="prev">
-                <span>{'<<'} Prev</span>
+                <span>
+                    {'<<'}
+                    {' '}
+                    Prev
+                </span>
             </Link>
         );
     };
@@ -135,11 +148,10 @@ const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
         setCompilerResponse(tempCompilerResponse);
         console.log('COMPILER RESPONSE:', compilerResponse);
         if (compilerResponse.id) setTestCaseBoxStatus('results');
-        else if (compilerResponse.status === 'compiling')
-            setTestCaseBoxStatus('compiling');
+        else if (compilerResponse.status === 'compiling') setTestCaseBoxStatus('compiling');
         else setTestCaseBoxStatus('hidden');
         console.log(testCaseBoxStatus);
-    });
+    }, []);
 
     return (
         <div>
@@ -158,7 +170,11 @@ const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
                         <div>{renderPrevAndNext()}</div>
                         <div>
                             <Link to="/questions" className="next">
-                                <span>{'<<'} Back to Questions</span>
+                                <span>
+                                    {'<<'}
+                                    {' '}
+                                    Back to Questions
+                                </span>
                             </Link>
                         </div>
                     </div>
@@ -191,9 +207,7 @@ const QuestionPage = ({ question, leaderboard, user, prevAndNextQs }) => {
                                         {langList.map((lang) => (
                                             <Dropdown.Item
                                                 className="dropdown-item"
-                                                onClick={(e) =>
-                                                    setLanguage(e.target.text)
-                                                }
+                                                onClick={(e) => setLanguage(e.target.text)}
                                             >
                                                 {lang}
                                             </Dropdown.Item>
@@ -262,7 +276,7 @@ QuestionPage.propTypes = {
                 questionsSolved: propTypes.number.isRequired,
                 slength: propTypes.number.isRequired,
                 latestTime: propTypes.instanceOf(Date).isRequired,
-            })
+            }),
         ),
     }).isRequired,
 };

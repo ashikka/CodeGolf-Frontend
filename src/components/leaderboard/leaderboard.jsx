@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import propTypes from 'prop-types';
 import swal from 'sweetalert';
@@ -31,15 +32,15 @@ const Leaderboard = ({ leaderboard }) => (
                                         {user.code ? (
                                             <td>
                                                 {leaderboard.questionName
-                                                !== 'Global' ? (
-                                                    <a
-                                                        onClick={() => swal(user.code)}
-                                                    >
-                                                        <img
-                                                            src={codeIcon}
-                                                            alt="O"
-                                                            className="code-icon"
-                                                        />
+                                                    !== 'Global' ? (
+                                                        <a
+                                                            onClick={() => swal(user.code)}
+                                                        >
+                                                            <img
+                                                                src={codeIcon}
+                                                                alt="O"
+                                                                className="code-icon"
+                                                            />
                                                         </a>
                                                     ) : ''}
                                                 {' '}
@@ -56,8 +57,8 @@ const Leaderboard = ({ leaderboard }) => (
                                             {Math.round(user.score)}
                                         </td>
                                         {leaderboard.questionName
-                                        !== 'Global' ? (
-                                            <td className="score-heading">
+                                            !== 'Global' ? (
+                                                <td className="score-heading">
                                                     {user.sLength}
                                                 </td>
                                             ) : null}
@@ -67,7 +68,7 @@ const Leaderboard = ({ leaderboard }) => (
                             return null;
                         })
                     ) : (
-                        <tr className="no-solves">No Solves Yet!!</tr>
+                        <tr className="no-solves"><td colSpan="4">No Solves Yet!</td></tr>
                     )}
                 </tbody>
             </table>
