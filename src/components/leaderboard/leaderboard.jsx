@@ -10,7 +10,7 @@ import './leaderboard.css';
 const Leaderboard = ({ leaderboard }) => (
     <div className="leaderboard">
         <div className="leaderboard-heading heading">Leaderboard</div>
-        <div className="leaderboard">
+        <div className="leaderboard--inner">
             <table className="leaderboard-table">
                 <thead>
                     <tr>
