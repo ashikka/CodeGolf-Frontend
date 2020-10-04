@@ -19,7 +19,8 @@ const Question = ({ question, numberOfSolves }) => (
                 {' '}
                 solves
             </div>
-            <Link to={`/question/${question.questionName}`}><button type="button" className="solve-button">Solve</button></Link>
+            {/* <Link to={`/question/${question.questionName}`}><button type="button" className="solve-button">Solve</button></Link> */}
+            <Link to="/questions"><button type="button" className="solve-button">Solve</button></Link>
         </div>
     </div>
 );
