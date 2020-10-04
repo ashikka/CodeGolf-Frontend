@@ -34,3 +34,15 @@ th {
 .code-icon {
 	height: 20px;
 }
+
+.leaderboard-table::-webkit-scrollbar {
+	width: 10px;
+}
+
+.leaderboard-table::-webkit-scrollbar-thumb {
+	background-color: white;
+}
+
+.leaderboard-table::-webkit-scrollbar-track {
+	background-color: black;
+}
