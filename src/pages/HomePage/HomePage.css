@@ -1,0 +1,44 @@
+html {
+  font-family: HACKED;
+  color: white;
+}
+
+@font-face {
+  font-family: "HACKED";
+  src: local("HACKED"), url("../../assets/fonts/HACKED/HACKED.ttf") format("truetype");
+}
+
+body {
+  background-size: cover;
+  background-color: black;
+}
+
+.home-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.codegolf-gif{
+  width: 100%;
+}
+
+.home-button {
+  margin-top: 10px;
+  font-size: 5rem;
+}
+
+.press-key {
+  font-size: 5rem;
+}
+
+@media only screen and (max-width: 62.5rem) {
+  .home-title {
+    left: 45%;
+  }
+  .home-button {
+    font-size: 2rem;
+  }
+}

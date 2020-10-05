@@ -1,0 +1,125 @@
+.content-area {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.prev {
+    margin-right: 20px;
+}
+
+.nav-buttons {
+    padding-bottom: 10px;
+    margin-top: -35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.question-heading {
+    font-size: 4.5rem !important;
+}
+
+.question-details,
+.coding-box {
+    margin-bottom: 20px;
+}
+
+.question-details {
+    white-space: pre-line;
+}
+
+#coding-space {
+    width: 100% !important;
+    height: 500px;
+    border: 5px solid #3cc6f2;
+    z-index: 99;
+}
+
+.submit-button {
+    color: white;
+    background-color: transparent;
+    border: 2px solid #3cc6f2;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1.5rem 4rem rgba(255, 255, 255, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.3);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    z-index: 100;
+}
+
+#dropdown-basic {
+	margin-bottom: 0;
+}
+
+.dropbtn {
+    color: white;
+    background-color: transparent;
+    border: 2px solid #3cc6f2;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 10rem;
+	z-index: 100;
+	font-size: 20px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    border: 2px solid #3cc6f2;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    background-color: transparent;
+}
+
+.dropdown-div, .language-div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dropdown-div {
+	margin-bottom: 20px;
+}
+
+.home-button {
+	margin-left: 20px;
+}
+
+.user-name {
+    font-size: 3rem;
+    margin: 10px 0;
+}
