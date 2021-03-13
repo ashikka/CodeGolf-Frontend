@@ -1,0 +1,53 @@
+.leaderboard-table {
+	border: 5px solid #FE0000;
+	border-spacing: 0;
+	max-height: 600px;
+	overflow-y: scroll;
+	font-size: 2.5rem;
+	max-width: 600px;
+}
+
+th, td {
+	padding: 20px 40px;
+}
+
+th {
+	padding-bottom: 10px;
+	border-bottom: 3px solid #FE0000;
+	margin: 0 5px;
+}
+
+.leaderboard-heading{
+	text-align: center;
+}
+
+.table-body {
+	max-height: 600px;
+	overflow-y: scroll;
+}
+
+.no-solves {
+	text-align: center;
+	column-span: all;
+}
+
+.code-icon {
+	height: 20px;
+}
+
+.leaderboard-table::-webkit-scrollbar {
+	width: 10px;
+}
+
+.leaderboard-table::-webkit-scrollbar-thumb {
+	background-color: white;
+}
+
+.leaderboard-table::-webkit-scrollbar-track {
+	background-color: black;
+}
+
+.leaderboard-inner {
+	max-height: 900px;
+	overflow-y: scroll;
+}
