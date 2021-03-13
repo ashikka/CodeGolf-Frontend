@@ -19,3 +19,12 @@ export const loginUser = async (token) => {
     const res = await api.post('/login', { loginToken: token });
     return res.data;
 };
+
+export const submitSolution = async (questionName, code, language) => {
+    const res = await api.post('/submissions',{
+        questionName,
+        code,
+        language
+    });
+    return res.data;
+}
