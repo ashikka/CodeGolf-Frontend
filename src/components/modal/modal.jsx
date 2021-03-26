@@ -5,8 +5,6 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 
 import ModalButton from '../../assets/Modal/Modal-Button.svg';
-import header from '../../assets/Modal/header.png';
-import sponsors from '../../assets/Modal/sponsors.png';
 import './modal.css';
 
 const ModalBox = () => {
@@ -26,9 +24,6 @@ const ModalBox = () => {
 
             <Modal className="modal" show={show} onHide={handleClose}>
                 <Modal.Body className="modal-body">
-                    <div className="modal-image">
-                        <img src={header} className="header" alt="header.png" />
-                    </div>
 
                     <div className="modal-content">
                         <div className="content-section">
@@ -48,7 +43,7 @@ const ModalBox = () => {
                         </div>
                         <div className="content-section">
                             <div className="section-heading">Rules</div>
-                            <div className="section-content rules-content">
+                            <div className="section-content rules-content pl-5">
                                 <ol>
                                     <li>Shorter code = More points</li>
                                     <li>
@@ -89,13 +84,7 @@ const ModalBox = () => {
                                 </ol>
                             </div>
                         </div>
-                        <div className="content-section">
-                            <img
-                                className="sponsor"
-                                src={sponsors}
-                                alt="sponsors.png"
-                            />
-                        </div>
+
                     </div>
                 </Modal.Body>
             </Modal>

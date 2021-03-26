@@ -1,15 +1,15 @@
 import { React, useEffect } from "react";
 import "./leaderboard.css";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchLeaderboard } from "../../redux/leaderboard/leaderboardSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { fetchLeaderboard } from "../../redux/leaderboard/leaderboardSlice";
 
 const Leaderboard = () => {
-  const dispatch = useDispatch();
-  const leaderboards = useSelector((state) => state.leaderboard.leaderboards);
-  console.log(leaderboards)
-  useEffect(() => {
-    dispatch(fetchLeaderboard());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const leaderboards = useSelector((state) => state.leaderboard.leaderboards);
+  // console.log(leaderboards)
+  // useEffect(() => {
+  //   dispatch(fetchLeaderboard());
+  // }, [dispatch]);
 
   return (
     <div className="leaderboard">
@@ -25,7 +25,7 @@ const Leaderboard = () => {
               <th>Length</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {leaderboards[9].users.map((leaderboard) => (
               <tr>
                 <td className="position">1</td>
@@ -35,7 +35,7 @@ const Leaderboard = () => {
                 <td>{leaderboard.sLength}</td>
               </tr>
             ))}           
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </div>

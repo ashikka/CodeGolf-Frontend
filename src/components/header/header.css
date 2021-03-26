@@ -1,7 +1,15 @@
 .header {
-	width: 100%;
+	width: 100vw;
+	height: 8vh;
+	background-color: black;
 }
 
-.header-image {
-	width: 100%;
+.text-white{
+	font-size: 4rem;
+	padding: 1rem;
+}
+
+.nav-link{
+	font-size: 2.5rem;
+	padding: 1rem;
 }

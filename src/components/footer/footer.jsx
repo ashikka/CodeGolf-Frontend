@@ -1,9 +1,5 @@
 import React from 'react';
-
-import bottomImage from '../../assets/footer/bottom-image.png';
-import csi from '../../assets/footer/csi.png';
-import codegolfBottom from '../../assets/footer/codegolf-bottom.png';
-import gravitas from '../../assets/footer/gravitas.png';
+import codegolf from '../../assets/footer/codegolf.png';
 import instagram from '../../assets/footer/instagram.png';
 import facebook from '../../assets/footer/facebook.png';
 import twitter from '../../assets/footer/twitter.png';
@@ -14,28 +10,19 @@ import './footer.css';
 
 const Footer = () => (
     <div className="bottom-footer">
-        <div className="bottom">
-            <img src={bottomImage} alt="Bottom" className="bottom-image" />
-        </div>
+
         <div className="footer">
             <div className="main-logos">
-                <a href="https://csivit.com">
-                    <img src={csi} alt="CSI" className="main-logo csi-logo" />
-                </a>
                 <a href="https://codegolf.csivit.com">
                     <img
-                        src={codegolfBottom}
+                        src={codegolf}
                         alt="CODEGOLF"
-                        className="main-logo codegolf-logo"
+                        className="codegolf-logo"
                     />
                 </a>
-                <a href="https://gravitas.vit.ac.in/">
-                    <img
-                        src={gravitas}
-                        alt="GRAVITAS"
-                        className="main-logo gravitas-logo"
-                    />
-                </a>
+            </div>
+            <div className="mt-1 mb-1">
+                <h2>Codegolf</h2>
             </div>
             <div className="social-logos">
                 <a href="https://www.instagram.com/csivitu/">

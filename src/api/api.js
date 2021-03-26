@@ -9,6 +9,6 @@ export const setAuthToken = (token) => {
     api.defaults.headers.common.Authorization = token
 };
 
-setAuthToken(process.env.TOKEN)
+setAuthToken(process.env.TOKEN);
 
 export default api;

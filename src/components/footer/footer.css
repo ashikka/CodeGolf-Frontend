@@ -6,15 +6,6 @@
 	width: 100%
 }
 
-.bottom-image {
-	width: 110%;
-	height: 250px;
-}
-
-.main-logo {
-	width: 200px;
-}
-
 .social-logo  {
 	height: 30px;
 	margin-right: 10px;
@@ -34,17 +25,11 @@
 	align-items: center;
 }
 
-.main-logos {
-	margin: 30px 0;
-}
 
 .social-logos {
 	width: 15vw;
 }
 
-.codegolf-logo{
-	margin: 0 30px;
-}
 
 .made-by-csivit img {
 	height: 20px;
