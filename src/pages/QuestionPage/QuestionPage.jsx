@@ -10,12 +10,11 @@ import AceEditor from "react-ace";
 import { Dropdown } from "react-bootstrap";
 import Footer from "../../components/footer/footer";
 import ModalBox from "../../components/modal/modal";
-// import TestCaseBox from '../../components/testcase/testcase';
+import TestCaseBox from "../../components/testcase/testcase";
 import api from "../../api/api";
 import { useSelector } from "react-redux";
 import { selectQuestionByName } from "../../redux/question/questionSlice";
-import QuestionLeaderboard from '../../components/questionleaderboard/questionLeaderboard';
-
+import QuestionLeaderboard from "../../components/questionleaderboard/questionLeaderboard";
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-javascript";
@@ -27,19 +26,20 @@ import "ace-builds/src-noconflict/mode-perl";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
-
+import swal from "sweetalert";
 import "./QuestionPage.css";
 import HomeButton from "../../assets/QuestionPage/home-button.svg";
 
 const QuestionPage = ({ match }) => {
-
+  const [tempCompilerResponse, setTempCompilerResponse] = useState({});
+  const [testCaseBoxStatus, setTestCaseBoxStatus] = useState("hidden");
+  const [compilerResponse, setCompilerResponse] = useState({});
 
   const { questionName } = match.params;
 
   const question = useSelector((state) => {
-    return selectQuestionByName(state, questionName)
+    return selectQuestionByName(state, questionName);
   });
-
 
   const langList = [
     "Bash",
@@ -74,7 +74,37 @@ const QuestionPage = ({ match }) => {
     setCharacter(value.length);
   };
 
- 
+  const submitSolution = async () => {
+    setTempCompilerResponse({ status: "compiling", tests: [] });
+    const res = await api.post("/submissions", {
+      questionName: question.questionName,
+      code,
+      language,
+      submitTime: Date.now(),
+    });
+    setTempCompilerResponse(res.data.compilerResponse);
+  };
+
+  const onSubmit = () => {
+    if (code.length === 0) {
+      swal("Please enter your code");
+    } else {
+      submitSolution();
+    }
+
+    return null;
+  };
+
+  useEffect(() => {
+    setCompilerResponse(tempCompilerResponse);
+    console.log("COMPILER RESPONSE:", compilerResponse);
+    if (compilerResponse.id) setTestCaseBoxStatus("results");
+    else if (compilerResponse.status === "compiling")
+      setTestCaseBoxStatus("compiling");
+    else setTestCaseBoxStatus("hidden");
+    console.log(testCaseBoxStatus);
+  }, [tempCompilerResponse, compilerResponse, testCaseBoxStatus]);
+
   return (
     <div>
       <Link to="/">
@@ -85,7 +115,6 @@ const QuestionPage = ({ match }) => {
       <div className="content-area">
         <div className="questions">
           <div className="nav-buttons">
-            
             <div>
               <Link to="/questions" className="next">
                 <span>&lt;&lt; Back to Questions</span>
@@ -144,12 +173,15 @@ const QuestionPage = ({ match }) => {
             }}
           />
 
-          <button type="button" className="submit-button">
+          <button type="button" className="submit-button" onClick={onSubmit}>
             Run
           </button>
-          {/* <TestCaseBox /> */}
+          <TestCaseBox
+            status={testCaseBoxStatus}
+            compilerResponse={compilerResponse}
+          />
         </div>
-          <QuestionLeaderboard match={match} />
+        <QuestionLeaderboard match={match} />
       </div>
       <Footer />
     </div>
