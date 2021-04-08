@@ -1,12 +1,12 @@
-import { React, useEffect } from "react";
-import "./leaderboard.css";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchLeaderboard } from "../../redux/leaderboard/leaderboardSlice";
+import { React, useEffect } from 'react';
+import './leaderboard.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchLeaderboard } from '../../redux/leaderboard/leaderboardSlice';
 
 const Leaderboard = () => {
   const dispatch = useDispatch();
   const leaderboards = useSelector((state) => state.leaderboard.leaderboards);
-  console.log(leaderboards)
+  console.log(leaderboards);
   useEffect(() => {
     dispatch(fetchLeaderboard());
   }, [dispatch]);
@@ -34,7 +34,7 @@ const Leaderboard = () => {
                 <td>{leaderboard.questionsSolved}</td>
                 <td>{leaderboard.sLength}</td>
               </tr>
-            ))}           
+            ))}
           </tbody>
         </table>
       </div>

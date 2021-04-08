@@ -1,17 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { selectLeaderboardbyName } from "../../redux/leaderboard/leaderboardSlice";
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectLeaderboardbyName } from '../../redux/leaderboard/leaderboardSlice';
 
-import "./questionLeaderboard.css";
+import './questionLeaderboard.css';
 
 const QuestionLeaderboard = ({ match }) => {
+  const { questionName } = match.params;
 
-  const {questionName} = match.params
-
-  const leaderboard = useSelector((state) => {
-    return selectLeaderboardbyName(state, questionName)
-  });
-
+  const leaderboard = useSelector((state) => selectLeaderboardbyName(state, questionName));
 
   return (
     <div className="leaderboard">
@@ -31,13 +28,13 @@ const QuestionLeaderboard = ({ match }) => {
           <tbody>
             {leaderboard.users.map((leader) => (
               <tr>
-              <td className="position">1</td>
-              <td className="name">{leader.username}</td>
-              <td className="score">{leader.score}</td>
-              <td className="score">{leader.questionsSolved}</td>
-              <td className="score">{leader.sLength}</td>
+                <td className="position">1</td>
+                <td className="name">{leader.username}</td>
+                <td className="score">{leader.score}</td>
+                <td className="score">{leader.questionsSolved}</td>
+                <td className="score">{leader.sLength}</td>
 
-            </tr>
+              </tr>
             ))}
           </tbody>
         </table>

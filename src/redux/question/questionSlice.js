@@ -1,19 +1,20 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getQuestions } from "../../api/requests";
+/* eslint-disable no-param-reassign */
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getQuestions } from '../../api/requests';
 
 export const fetchQuestions = createAsyncThunk(
-  "questions/fetchQuestions",
+  'questions/fetchQuestions',
   async () => {
     const response = await getQuestions();
     return response;
-  }
+  },
 );
 
 const questionSlice = createSlice({
-  name: "question",
+  name: 'question',
 
   initialState: {
-    status: "success",
+    status: 'success',
     questions: [],
   },
 
@@ -30,7 +31,7 @@ const questionSlice = createSlice({
 });
 
 export const selectQuestionByName = (state, questionName) => {
-  return state.question.questions.find((question) => question.questionName === questionName);
+  state.question.questions.find((question) => question.questionName === questionName);
 };
 
 export default questionSlice.reducer;

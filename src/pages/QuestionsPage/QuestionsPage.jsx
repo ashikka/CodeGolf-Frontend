@@ -1,19 +1,18 @@
-import { React, useEffect } from "react";
-import Question from "../../components/question/question";
-import Footer from "../../components/footer/footer";
-import "./QuestionsPage.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchQuestions } from "../../redux/question/questionSlice";
-import ModalBox from "../../components/modal/modal";
-import Leaderboard from "../../components/leaderboard/leaderboard";
+import { React, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Question from '../../components/question/question';
+import Footer from '../../components/footer/footer';
+import './QuestionsPage.css';
+import { fetchQuestions } from '../../redux/question/questionSlice';
+import ModalBox from '../../components/modal/modal';
+import Leaderboard from '../../components/leaderboard/leaderboard';
 
 const QuestionsPage = () => {
-
   const dispatch = useDispatch();
   const questions = useSelector((state) => state.question.questions);
 
   useEffect(() => {
-      dispatch(fetchQuestions());
+    dispatch(fetchQuestions());
   }, [dispatch]);
   return (
     <>
