@@ -16,7 +16,6 @@ const TestCaseBox = ({ status, compilerResponse }) => {
     }
     return (
       <div className="text-case-div">
-        {console.log('PRITNING: ', compilerResponse.tests)}
         {compilerResponse.tests.map((test, i) => {
           if (i === 0) {
             if (test.remarks === 'Fail') {

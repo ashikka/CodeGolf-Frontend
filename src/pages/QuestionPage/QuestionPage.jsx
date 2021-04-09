@@ -96,11 +96,9 @@ const QuestionPage = ({ match }) => {
 
   useEffect(() => {
     setCompilerResponse(tempCompilerResponse);
-    console.log('COMPILER RESPONSE:', compilerResponse);
     if (compilerResponse.id) setTestCaseBoxStatus('results');
     else if (compilerResponse.status === 'compiling') setTestCaseBoxStatus('compiling');
     else setTestCaseBoxStatus('hidden');
-    console.log(testCaseBoxStatus);
   }, [tempCompilerResponse, compilerResponse, testCaseBoxStatus]);
 
   return (

@@ -6,7 +6,6 @@ import { fetchLeaderboard } from '../../redux/leaderboard/leaderboardSlice';
 const Leaderboard = () => {
   const dispatch = useDispatch();
   const leaderboards = useSelector((state) => state.leaderboard.leaderboards);
-  console.log(leaderboards);
   useEffect(() => {
     dispatch(fetchLeaderboard());
   }, [dispatch]);
