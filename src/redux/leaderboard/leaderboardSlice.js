@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAllLeaderboards } from '../../api/requests';
@@ -31,7 +33,7 @@ const leaderboardSlice = createSlice({
 });
 
 export const selectLeaderboardbyName = (state, questionName) => {
-  state.leaderboard.leaderboards.find((leaderboard) => leaderboard.questionName === questionName);
+  return state.leaderboard.leaderboards.find((leaderboard) => leaderboard.questionName === questionName);
 };
 
 export default leaderboardSlice.reducer;

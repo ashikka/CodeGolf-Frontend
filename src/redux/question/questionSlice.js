@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getQuestions } from '../../api/requests';
@@ -31,7 +32,7 @@ const questionSlice = createSlice({
 });
 
 export const selectQuestionByName = (state, questionName) => {
-  state.question.questions.find((question) => question.questionName === questionName);
+  return state.question.questions.find((question) => question.questionName === questionName);
 };
 
 export default questionSlice.reducer;
