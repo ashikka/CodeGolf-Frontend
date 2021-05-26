@@ -8,7 +8,6 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo">
-    <img src="https://csivit.com/images/favicon.png" alt="Logo" width="80">
   </a>
 
   <h3 align="center">YOUR_TITLE</h3>
